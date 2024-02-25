@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         paddingLeft: hp(2),
         flex: 1,
         fontSize: hp(2.1),
-        color: '#000000'
+        color: '#ffffff'
     },
     searchButton: {
         margin: 1,
