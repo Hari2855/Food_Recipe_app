@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import { ChevronLeftIcon, ClockIcon, FireIcon, Square3Stack3DIcon, UserIcon, UsersIcon } from "react-native-heroicons/outline";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
@@ -8,6 +8,7 @@ import axios from "axios";
 import Loading from "../components/loading";
 import YoutubeIframe from "react-native-youtube-iframe";
 import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
+import { ThemeContext } from "../constants/ThemeContext";
 
 export default function RecipeDetailScreen(props) {
     let item = props.route.params;
@@ -15,6 +16,7 @@ export default function RecipeDetailScreen(props) {
     const navigation = useNavigation()
     const [meal, setMeal] = useState(null)
     const [loading, setLoading] = useState(true)
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         getMealData(item.idMeal)
@@ -53,7 +55,7 @@ export default function RecipeDetailScreen(props) {
         return null;
     }
     return (
-        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: '#000', paddingBottom: 30,}}>
+        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: theme === 'dark' ? 'black' : 'white', paddingBottom: 30,}}>
             <View style={{ flexDirection: 'row', justifyContent: 'center'}}>
                 <Image source={{ uri: item.strMealThumb }} sharedTransitionTag={item.strMeal} style={{ width: wp(98), height: hp(60), borderRadius: 53, borderBottomLeftRadius: 40, borderBottomRightRadius: 40,}} />
             </View>
@@ -81,8 +83,8 @@ export default function RecipeDetailScreen(props) {
                 ) : (
                     <View style={{ paddingTop: 8, paddingHorizontal: 4, marginBottom: 16, justifyContent: 'space-between' }}>
                         <Animated.View entering={FadeInDown.duration(700).springify().duration(12)} style={{ marginBottom: 8, marginLeft: 15 }}>
-                            <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: 'white' }}>{meal?.strMeal}</Text>
-                            <Text style={{ fontSize: hp(2), fontWeight: '500', color: 'white', marginTop: 5 }}>{meal?.
+                            <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: theme === 'dark' ? 'white' : '#343534' }}>{meal?.strMeal}</Text>
+                            <Text style={{ fontSize: hp(2), fontWeight: '500', color: theme === 'dark' ? 'white' : '#343534' , marginTop: 5 }}>{meal?.
                                 strArea}</Text>
                         </Animated.View>
 
@@ -172,7 +174,7 @@ export default function RecipeDetailScreen(props) {
 
                         <Animated.View
                             entering={FadeInDown.delay(200).duration(700).springify().duration(12)} style={{ marginLeft: 15, marginTop: 5, marginVertical: 4 }}>
-                            <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: 'white' }}>
+                            <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: theme === 'dark' ? 'white' : '#343534' }}>
                                 Ingredients
                             </Text>
                             <View style={{ marginVertical: 2, marginLeft: 3 }}>
@@ -187,8 +189,8 @@ export default function RecipeDetailScreen(props) {
                                                     justifyContent: 'space-between',
                                                     alignItems: 'center', marginLeft: 10, bottom: 4
                                                 }}>
-                                                    <Text style={{ fontSize: hp(1.7), color: 'white', fontWeight: 'bold' }}>{meal['strMeasure' + i]}</Text>
-                                                    <Text style={{ fontSize: hp(1.7), marginLeft: 5, color: 'white', fontWeight: '500' }}>{meal['strIngredient' + i]}</Text>
+                                                    <Text style={{ fontSize: hp(1.7), color: theme === 'dark' ? 'white' : '#343534', fontWeight: 'bold' }}>{meal['strMeasure' + i]}</Text>
+                                                    <Text style={{ fontSize: hp(1.7), marginLeft: 5, color: theme === 'dark' ? 'white' : '#343534', fontWeight: '500' }}>{meal['strIngredient' + i]}</Text>
                                                 </View>
                                             </View>
                                         )
@@ -199,10 +201,10 @@ export default function RecipeDetailScreen(props) {
 
                         <Animated.View
                             entering={FadeInDown.delay(300).duration(700).springify().duration(12)} style={{ marginLeft: 15, }}>
-                            <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: 'white' }}>
+                            <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: theme === 'dark' ? 'white' : '#343534' }}>
                                 Instructions
                             </Text>
-                            <Text style={{ color: 'white', fontSize: hp(2) }}>
+                            <Text style={{ color: theme === 'dark' ? 'white' : '#343534', fontSize: hp(2) }}>
                                 {
                                     meal?.strInstructions
                                 }
@@ -214,7 +216,7 @@ export default function RecipeDetailScreen(props) {
                             meal.strYoutube && (
                                 <Animated.View
                                     entering={FadeInDown.delay(100).duration(700).springify().duration(12)} style={{ marginBottom: 16 }}>
-                                    <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: 'white', marginLeft: 15, marginTop: 10 }}>
+                                    <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: theme === 'dark' ? 'white' : '#343534', marginLeft: 15, marginTop: 10 }}>
                                         Recipe Video
                                     </Text>
                                     <View style={{marginTop: 10}}>

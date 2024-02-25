@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { enableScreens } from 'react-native-screens';
@@ -6,13 +6,15 @@ import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import AddScreen from '../screens/AddScreen';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { ThemeContext } from '../constants/ThemeContext';
 
 enableScreens();
 const Bottom = createBottomTabNavigator();
 
 const BottomNavigator = () => {
+    const { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme === 'dark' ? 'black' : 'white' }]}>
       <Bottom.Navigator
         screenOptions={({ route }) => ({
           headerShown: false,
@@ -42,7 +44,7 @@ const BottomNavigator = () => {
           },
           tabBarActiveTintColor: '#FFC107',
           tabBarInactiveTintColor: '#ffffff',
-          tabBarHideOnKeyboard: true,
+          tabBarHideOnKeyboard: true
         })}
       >
         <Bottom.Screen name="Home" component={HomeScreen} />
@@ -58,7 +60,7 @@ export default BottomNavigator;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black'
+    backgroundColor: '#ffffff'
   },
   img: {
     height: hp(3.5  ),

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native'
 import { Categoriesdata } from "../constants";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import Animated, {FadeInDown} from "react-native-reanimated";
+import { ThemeContext } from "../constants/ThemeContext";
 
 
 export default function Categories({categories, activeCategory, handelChangeCategory}) {
+    const { theme, toggleTheme } = useContext(ThemeContext);
     return(
         <Animated.View entering={FadeInDown.duration(500).springify()}>
             <ScrollView horizontal={true} showsVerticalScrollIndicator={false} contentContainerStyle={{paddingHorizontal: 15, marginHorizontal: 16, marginTop: 25, right: 30}}>
@@ -13,7 +15,7 @@ export default function Categories({categories, activeCategory, handelChangeCate
                 {
                     categories.map((cat, index)=> {
                         let isActive = cat.strCategory == activeCategory
-                        let activeButtonClass = isActive? '#FFC107' : '#333'
+                        let activeButtonClass = isActive? '#FFC107' : '#dee0dd'
 
                         return(
                             <TouchableOpacity key={index} style={{flex: 1, alignItems: 'center', justifyContent: 'space-between', paddingVertical: 4, paddingLeft: 15}} onPress={() => handelChangeCategory(cat.strCategory) }>
@@ -23,7 +25,7 @@ export default function Categories({categories, activeCategory, handelChangeCate
                                     style={{width: hp(6), height: hp(6), borderRadius: 100,}}
                                     />
                                 </View>
-                                <Text style={{fontSize: hp(1.8), color: 'white'}}>{cat.strCategory}</Text>
+                                <Text style={{fontSize: hp(1.8), color: theme === 'dark' ? 'white' : '#4a4c49'}}>{cat.strCategory}</Text>
                             </TouchableOpacity>
                         )
                     })
