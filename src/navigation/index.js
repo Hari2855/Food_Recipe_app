@@ -5,6 +5,7 @@ import Home from "../screens/HomeScreen";
 import Welcome from "../screens/WelcomeScreen";
 import RecipeDetailScreen from "../screens/RecipeDetailScreen";
 import SearchScreen from "../screens/SearchScreen";
+import Parent from "./Parent";
 
 
 const Stack = createNativeStackNavigator()
@@ -13,10 +14,9 @@ function AppNavigation() {
     return(
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Welcome" screenOptions={{headerShown: false}}>
-                <Stack.Screen name="Home" component={Home}/>
+                <Stack.Screen name="Parent" component={Parent}/>
                 <Stack.Screen name="Welcome" component={Welcome}/>
                 <Stack.Screen name="RecipeDetail" component={RecipeDetailScreen}/>
-                <Stack.Screen name="Search" component={SearchScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

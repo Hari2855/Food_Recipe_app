@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: '#ffffff'
+        backgroundColor: 'black'
     },
     container2: {
         marginHorizontal: 4,
@@ -57,7 +57,9 @@ const styles = StyleSheet.create({
         height: hp(5),
         width: hp(5),
         borderRadius: hp(3),
-        marginLeft: wp(5)
+        marginLeft: wp(5),
+        borderWidth: 1,
+        borderColor: 'white'
     },
     container3: {
         marginHorizontal: 4,
@@ -66,12 +68,12 @@ const styles = StyleSheet.create({
     },
     txt3: {
         fontSize: hp(1.7),
-        color: 'gray',
+        color: 'white',
         marginLeft: wp(5)
     },
     txt4: {
         fontSize: hp(3.8),
-        color: '#646664',
+        color: 'white',
         marginLeft: wp(5),
         fontWeight: '500'
     },
@@ -105,8 +107,9 @@ const styles = StyleSheet.create({
     txtit: {
         fontWeight: '600',
         marginLeft: 2,
-        color: '#4A5568',
-        fontSize: hp(1.5)
+        color: '#ffffff',
+        fontSize: hp(1.5),
+        marginTop: wp(1)
     },
     loadingc: {
         flex: 1, 

@@ -87,17 +87,17 @@ export default function SearchScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#000000',
     },
     searchContainer: {
         height: hp(6),
         width: '90%',
         borderRadius: 30,
-        backgroundColor: '#eff0ef',
+        backgroundColor: '#333',
         alignItems: 'center',
         flexDirection: 'row',
         borderWidth: 0.5,
-        borderColor: 'lightgray',
+        borderColor: '#333',
         marginTop: wp(3),
         alignSelf: 'center'
     },
@@ -111,7 +111,8 @@ const styles = StyleSheet.create({
         margin: 1,
         padding: 8,
         backgroundColor: '#656764',
-        borderRadius: 20
+        borderRadius: 20,
+        marginRight: 5
     },
     searchButtonText: {
         color: 'white',

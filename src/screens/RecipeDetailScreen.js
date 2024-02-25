@@ -53,7 +53,7 @@ export default function RecipeDetailScreen(props) {
         return null;
     }
     return (
-        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: '#ffffff', paddingBottom: 30,}}>
+        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: '#000', paddingBottom: 30,}}>
             <View style={{ flexDirection: 'row', justifyContent: 'center'}}>
                 <Image source={{ uri: item.strMealThumb }} sharedTransitionTag={item.strMeal} style={{ width: wp(98), height: hp(60), borderRadius: 53, borderBottomLeftRadius: 40, borderBottomRightRadius: 40,}} />
             </View>
@@ -81,8 +81,8 @@ export default function RecipeDetailScreen(props) {
                 ) : (
                     <View style={{ paddingTop: 8, paddingHorizontal: 4, marginBottom: 16, justifyContent: 'space-between' }}>
                         <Animated.View entering={FadeInDown.duration(700).springify().duration(12)} style={{ marginBottom: 8, marginLeft: 15 }}>
-                            <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: '#363735' }}>{meal?.strMeal}</Text>
-                            <Text style={{ fontSize: hp(2), fontWeight: '500', color: '#636463', marginTop: 5 }}>{meal?.
+                            <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: 'white' }}>{meal?.strMeal}</Text>
+                            <Text style={{ fontSize: hp(2), fontWeight: '500', color: 'white', marginTop: 5 }}>{meal?.
                                 strArea}</Text>
                         </Animated.View>
 
@@ -172,7 +172,7 @@ export default function RecipeDetailScreen(props) {
 
                         <Animated.View
                             entering={FadeInDown.delay(200).duration(700).springify().duration(12)} style={{ marginLeft: 15, marginTop: 5, marginVertical: 4 }}>
-                            <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: '#383736' }}>
+                            <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: 'white' }}>
                                 Ingredients
                             </Text>
                             <View style={{ marginVertical: 2, marginLeft: 3 }}>
@@ -187,8 +187,8 @@ export default function RecipeDetailScreen(props) {
                                                     justifyContent: 'space-between',
                                                     alignItems: 'center', marginLeft: 10, bottom: 4
                                                 }}>
-                                                    <Text style={{ fontSize: hp(1.7), color: '#2f2f2f', fontWeight: 'bold' }}>{meal['strMeasure' + i]}</Text>
-                                                    <Text style={{ fontSize: hp(1.7), marginLeft: 5, color: '#3c3d3c', fontWeight: '500' }}>{meal['strIngredient' + i]}</Text>
+                                                    <Text style={{ fontSize: hp(1.7), color: 'white', fontWeight: 'bold' }}>{meal['strMeasure' + i]}</Text>
+                                                    <Text style={{ fontSize: hp(1.7), marginLeft: 5, color: 'white', fontWeight: '500' }}>{meal['strIngredient' + i]}</Text>
                                                 </View>
                                             </View>
                                         )
@@ -199,10 +199,10 @@ export default function RecipeDetailScreen(props) {
 
                         <Animated.View
                             entering={FadeInDown.delay(300).duration(700).springify().duration(12)} style={{ marginLeft: 15, }}>
-                            <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: '#383736' }}>
+                            <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: 'white' }}>
                                 Instructions
                             </Text>
-                            <Text style={{ color: '#393837', fontSize: hp(2) }}>
+                            <Text style={{ color: 'white', fontSize: hp(2) }}>
                                 {
                                     meal?.strInstructions
                                 }
@@ -214,13 +214,13 @@ export default function RecipeDetailScreen(props) {
                             meal.strYoutube && (
                                 <Animated.View
                                     entering={FadeInDown.delay(100).duration(700).springify().duration(12)} style={{ marginBottom: 16 }}>
-                                    <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: '#383736', marginLeft: 15, marginTop: 10 }}>
+                                    <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: 'white', marginLeft: 15, marginTop: 10 }}>
                                         Recipe Video
                                     </Text>
-                                    <View style={{marginTop: 10, borderRadius: 30}}>
+                                    <View style={{marginTop: 10}}>
                                         <YoutubeIframe
                                             videoId={getYoutubeVideoID(meal.strYoutube)}              
-                                            height={hp(30)}
+                                            height={hp(30)} 
                                         />
                                     </View>
                                 </Animated.View>

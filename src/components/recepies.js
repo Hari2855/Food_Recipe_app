@@ -13,7 +13,7 @@ export default function Recipes({ categories, meals}) {
     const navigation = useNavigation()
     return (
         <View style={{ marginHorizontal: 16, marginTop: 20 }}>
-            <Text style={{ fontSize: hp(3), fontWeight: '500', color: '#393b39' }}>Recipes</Text>
+            <Text style={{ fontSize: hp(3), fontWeight: '500', color: 'white' }}>Recipes</Text>
             <View>
                 {
                     categories.length == 0 || meals.length == 0 ? (<Loading size="large" color="#FFC107"/>) : (
@@ -40,7 +40,7 @@ const RecipeCard = ({ item, index, navigation }) => {
     return (
         <Animated.View entering={FadeInDown.delay(index * 100).duration(600).springify().damping(12)}>
             <Pressable style={[styles.item, { paddingLeft: isEven ? 0 : 8, paddingRight: isEven ? 8 : 0 }]} onPress={()=>navigation.navigate('RecipeDetail', {...item})}>
-                <Image source={{ uri: item.strMealThumb }} style={[styles.itemimg, { height: index % 3 == 0 ? hp(25) : hp(35) }]} sharedTransitionTag={item.strMeal} />
+                <Image source={{ uri: item.strMealThumb }} style={[styles.itemimg]} sharedTransitionTag={item.strMeal} />
                 {/* <CardImage  uri={item.strMealThumb } style={[styles.itemimg, { height: index % 3 == 0 ? hp(25) : hp(35) }]} /> */}
                 <Text style={styles.txtit}>{item.strMeal.length > 20 ? item.strMeal.slice(0, 20) + '...' : item.strMeal}</Text>
             </Pressable>

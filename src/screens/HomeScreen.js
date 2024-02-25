@@ -51,24 +51,24 @@ export default function Home() {
     }
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor={"#ffffff"} barStyle={'dark-content'}/>
+            <StatusBar backgroundColor={"black"} barStyle={'light-content'}/>
             <ScrollView showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ paddingBottom: 50, paddingTop: 14, marginVertical: 6 }}
+                contentContainerStyle={{ paddingBottom: 40,marginVertical: 6 }}
             >
                 <View style={styles.container2}>
                     <Image source={require('../../assets/avatar.jpg')} style={styles.img2}/>
-                    {/* <BellIcon size={hp(4)} color={'gray'} style={{marginRight: wp(5)}}/> */}
-                    <TouchableOpacity style={{backgroundColor: '#FFC107', borderRadius: 20, padding: wp(2), marginRight: wp(5)}} onPress={()=>navigation.navigate('Search')}>
+                    <BellIcon size={hp(4)} color={'white'} style={{marginRight: wp(5)}}/>
+                    {/* <TouchableOpacity style={{backgroundColor: '#FFC107', borderRadius: 20, padding: wp(2), marginRight: wp(5)}} onPress={()=>navigation.navigate('Search')}>
                         <MagnifyingGlassIcon size={hp(2.5)} strokeWidth={3} color={"white"}/>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
                 <View style={styles.container3}>
                     <Text style={styles.txt3}>Hello, Hari!</Text>
                     <View>
-                        <Text style={styles.txt4}>Make your own food,</Text>
+                        <Text style={styles.txt4}>What You Would like</Text>
                     </View>
-                    <Text style={styles.txt4}>Stay at <Text style={{color: '#ebc068'}}>home</Text></Text>
+                    <Text style={[styles.txt4, {color: '#FFC107'}]}>to cook for today?</Text>
                 </View>
 
                 {/* <View style={styles.search}>
