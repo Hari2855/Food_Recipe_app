@@ -22,7 +22,7 @@ export default function Categories({categories, activeCategory, handelChangeCate
 
                                 <View style={[{borderRadius: 300, padding: 6, backgroundColor: activeButtonClass,}]}>
                                     <Image source={{uri: cat.strCategoryThumb}}
-                                    style={{width: hp(6), height: hp(6), borderRadius: 100,}}
+                                    style={{width: hp(6), height: hp(6), borderRadius: hp(10),}}
                                     />
                                 </View>
                                 <Text style={{fontSize: hp(1.8), color: theme === 'dark' ? 'white' : '#4a4c49'}}>{cat.strCategory}</Text>

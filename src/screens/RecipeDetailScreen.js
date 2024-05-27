@@ -55,9 +55,9 @@ export default function RecipeDetailScreen(props) {
         return null;
     }
     return (
-        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: theme === 'dark' ? 'black' : 'white', paddingBottom: 30,}}>
-            <View style={{ flexDirection: 'row', justifyContent: 'center'}}>
-                <Image source={{ uri: item.strMealThumb }} sharedTransitionTag={item.strMeal} style={{ width: wp(98), height: hp(60), borderRadius: 53, borderBottomLeftRadius: 40, borderBottomRightRadius: 40,}} />
+        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: theme === 'dark' ? 'black' : 'white', paddingBottom: 30, }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                <Image source={{ uri: item.strMealThumb }} sharedTransitionTag={item.strMeal} style={{ width: wp(98), height: hp(60), borderRadius: 53, borderBottomLeftRadius: 40, borderBottomRightRadius: 40, }} />
             </View>
 
             <Animated.View entering={FadeIn.delay(200).duration(1000)} style={{ width: '100%', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', bottom: '110%' }}>
@@ -67,7 +67,8 @@ export default function RecipeDetailScreen(props) {
 
                 <TouchableOpacity style={{
                     padding: 2,
-                    marginRight: 15, backgroundColor: '#ffffff',
+                    marginRight: 15,
+                    backgroundColor: '#ffffff',
                     borderRadius: 30
                 }}
                     onPress={() => setIsFavourite(!isFavourite)}
@@ -84,7 +85,7 @@ export default function RecipeDetailScreen(props) {
                     <View style={{ paddingTop: 8, paddingHorizontal: 4, marginBottom: 16, justifyContent: 'space-between' }}>
                         <Animated.View entering={FadeInDown.duration(700).springify().duration(12)} style={{ marginBottom: 8, marginLeft: 15 }}>
                             <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: theme === 'dark' ? 'white' : '#343534' }}>{meal?.strMeal}</Text>
-                            <Text style={{ fontSize: hp(2), fontWeight: '500', color: theme === 'dark' ? 'white' : '#343534' , marginTop: 5 }}>{meal?.
+                            <Text style={{ fontSize: hp(2), fontWeight: '500', color: theme === 'dark' ? 'white' : '#343534', marginTop: 5 }}>{meal?.
                                 strArea}</Text>
                         </Animated.View>
 
@@ -219,10 +220,10 @@ export default function RecipeDetailScreen(props) {
                                     <Text style={{ fontSize: hp(2.5), fontWeight: 'bold', color: theme === 'dark' ? 'white' : '#343534', marginLeft: 15, marginTop: 10 }}>
                                         Recipe Video
                                     </Text>
-                                    <View style={{marginTop: 10}}>
+                                    <View style={{ marginTop: 10 }}>
                                         <YoutubeIframe
-                                            videoId={getYoutubeVideoID(meal.strYoutube)}              
-                                            height={hp(30)} 
+                                            videoId={getYoutubeVideoID(meal.strYoutube)}
+                                            height={hp(30)}
                                         />
                                     </View>
                                 </Animated.View>

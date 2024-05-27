@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "429613513931",
+    "project_id": "food-hub-c432d",
+    "storage_bucket": "food-hub-c432d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429613513931:android:b0aaa8d91be9019df16f4e",
+        "android_client_info": {
+          "package_name": "com.foodrecipes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKHuK7SGI01e-7yfA35DGn6-llIMF0MtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
