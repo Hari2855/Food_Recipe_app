@@ -24,7 +24,7 @@ export default function Welcome() {
             <StatusBar backgroundColor={"#f4920c"}/>
             <Animated.View style={[styles.ring1, {padding: ring2padding}]}>
                 <Animated.View style={[styles.ring2, {padding: ring1padding}]}>
-                    <Image source={require('../../assets/welcome.png')} style={styles.img1}/>
+                    <Image source={require('../../assets/Welcome.jpg')} style={styles.img1}/>
                 </Animated.View>
             </Animated.View>
 

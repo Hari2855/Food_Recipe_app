@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, ScrollView, Image, TouchableOpacity, StatusBar } from 'react-native'
 import { ChevronLeftIcon, ClockIcon, FireIcon, Square3Stack3DIcon, UserIcon, UsersIcon } from "react-native-heroicons/outline";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { HeartIcon } from 'react-native-heroicons/solid';
@@ -56,8 +56,9 @@ export default function RecipeDetailScreen(props) {
     }
     return (
         <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, backgroundColor: theme === 'dark' ? 'black' : 'white', paddingBottom: 30, }}>
+          <StatusBar barStyle="light-content" translucent backgroundColor="transparent"/>
             <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                <Image source={{ uri: item.strMealThumb }} sharedTransitionTag={item.strMeal} style={{ width: wp(98), height: hp(60), borderRadius: 53, borderBottomLeftRadius: 40, borderBottomRightRadius: 40, }} />
+                <Image source={{ uri: item.strMealThumb }} sharedTransitionTag={item.strMeal} style={{ width: wp(100), height: hp(60)}} />
             </View>
 
             <Animated.View entering={FadeIn.delay(200).duration(1000)} style={{ width: '100%', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', bottom: '110%' }}>
